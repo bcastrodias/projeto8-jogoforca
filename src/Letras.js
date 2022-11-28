@@ -29,8 +29,12 @@ const alfabeto = [
 
 const Letra = ({ setChutes, simbolo, chutes, disabled }) => {
   return (
-    <button disabled={disabled} onClick={() => setChutes([...chutes, simbolo])}>
-      {simbolo}
+    <button
+      data-test="letter"
+      disabled={disabled}
+      onClick={() => setChutes([...chutes, simbolo])}
+    >
+      {simbolo.toUpperCase()}
     </button>
   );
 };

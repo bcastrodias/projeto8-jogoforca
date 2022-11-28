@@ -5,8 +5,14 @@ const Chute = ({ setPalpite }) => {
   return (
     <div>
       <div>Já sei a palavra!</div>
-      <input onChange={(event) => setChute(event.target.value)} value={chute} />
-      <button onClick={() => setPalpite(chute)}>Chutar</button>
+      <input
+        data-test="guess-input"
+        onChange={(event) => setChute(event.target.value)}
+        value={chute}
+      />
+      <button data-test="guess-button" onClick={() => setPalpite(chute)}>
+        Chutar
+      </button>
     </div>
   );
 };

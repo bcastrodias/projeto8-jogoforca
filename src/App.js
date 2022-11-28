@@ -25,6 +25,7 @@ function App() {
         chutes={chutes}
         chutesErrados={chutesErrados}
         onClickPalavra={onClickPalavra}
+        isGameRunning={isGameRunning}
       />
       <Letras
         chutes={chutes}

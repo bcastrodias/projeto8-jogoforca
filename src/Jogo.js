@@ -1,4 +1,10 @@
-const Jogo = ({ palavra, chutes, chutesErrados, onClickPalavra }) => {
+const Jogo = ({
+  palavra,
+  chutes,
+  chutesErrados,
+  onClickPalavra,
+  isGameRunning,
+}) => {
   const palavraEmArray = Array.from(palavra || "");
 
   const palavraApagada = palavraEmArray.map((letra) => {
@@ -9,13 +15,21 @@ const Jogo = ({ palavra, chutes, chutesErrados, onClickPalavra }) => {
     }
   });
 
-  const palavraParaExibir = palavraApagada.join(" ");
+  const palavraParaExibir = isGameRunning ? palavraApagada.join(" ") : palavra;
 
   return (
     <div>
-      <img src={`img/assets/forca${chutesErrados.length}.png`}></img>
-      <button onClick={onClickPalavra}>Escolher palavra</button>
-      {palavraParaExibir}
+      <img
+        data-test="game-image"
+        src={`img/assets/forca${chutesErrados.length}.png`}
+      ></img>
+      <button data-test="choose-word" onClick={onClickPalavra}>
+        Escolher palavra
+      </button>
+      <div data-test="word" data-answer={palavra}>
+        {" "}
+        {palavraParaExibir}{" "}
+      </div>
     </div>
   );
 };
