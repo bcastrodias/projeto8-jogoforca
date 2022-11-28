@@ -3,12 +3,14 @@ import Letras from "./Letras";
 import { useState } from "react";
 import palavras from "./palavras";
 import Chute from "./Chute";
+import Jogo from "./Jogo";
 
 function App() {
   const [palavra, setPalavra] = useState();
   const [chutes, setChutes] = useState([]);
+  const chutesErrados = chutes.filter((chute) => !palavra.includes(chute));
   const [palpite, setPalpite] = useState();
-  const isGameRunning = palavra && chutes.length < 6 && !palpite;
+  const isGameRunning = palavra && chutesErrados.length < 6 && !palpite;
 
   const onClickPalavra = () => {
     setPalavra(palavras[Math.floor(Math.random() * palavras.length)]);
@@ -18,8 +20,12 @@ function App() {
 
   return (
     <div className="App">
-      <img src={`assets/forca${chutes.length}.png`}></img>
-      <button onClick={onClickPalavra}>Escolher palavra</button>
+      <Jogo
+        palavra={palavra}
+        chutes={chutes}
+        chutesErrados={chutesErrados}
+        onClickPalavra={onClickPalavra}
+      />
       <Letras
         chutes={chutes}
         setChutes={setChutes}
