@@ -32,7 +32,7 @@ function App() {
         setChutes={setChutes}
         isGameRunning={isGameRunning}
       />
-      <Chute setPalpite={setPalpite} />
+      <Chute setPalpite={setPalpite} isGameRunning={isGameRunning} />
     </div>
   );
 }
