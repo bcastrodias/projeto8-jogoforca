@@ -41,7 +41,7 @@ const Letras = ({ chutes, setChutes, isGameRunning }) => {
       {alfabeto.map((letter) => (
         <Letra
           simbolo={letter}
-          disabled={chutes.includes(letter) || isGameRunning}
+          disabled={chutes.includes(letter) || !isGameRunning}
           chutes={chutes}
           setChutes={setChutes}
         />
