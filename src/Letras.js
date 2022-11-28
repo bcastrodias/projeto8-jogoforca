@@ -27,15 +27,24 @@ const alfabeto = [
   "z",
 ];
 
-const Letra = (props) => {
-  return <div>{props.simbolo}</div>;
+const Letra = ({ setChutes, simbolo, chutes, disabled }) => {
+  return (
+    <button disabled={disabled} onClick={() => setChutes([...chutes, simbolo])}>
+      {simbolo}
+    </button>
+  );
 };
 
-const Letras = () => {
+const Letras = ({ chutes, setChutes, isGameRunning }) => {
   return (
     <div>
       {alfabeto.map((letter) => (
-        <Letra simbolo={letter} />
+        <Letra
+          simbolo={letter}
+          disabled={chutes.includes(letter) || isGameRunning}
+          chutes={chutes}
+          setChutes={setChutes}
+        />
       ))}
     </div>
   );
