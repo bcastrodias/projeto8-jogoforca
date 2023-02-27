@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 const alfabeto = [
   "a",
   "b",
@@ -29,19 +31,20 @@ const alfabeto = [
 
 const Letra = ({ setChutes, simbolo, chutes, disabled }) => {
   return (
-    <button
+    <Palpite
+      className="letras"
       data-test="letter"
       disabled={disabled}
       onClick={() => setChutes([...chutes, simbolo])}
     >
       {simbolo.toUpperCase()}
-    </button>
+    </Palpite>
   );
 };
 
 const Letras = ({ chutes, setChutes, isGameRunning }) => {
   return (
-    <div>
+    <Container>
       {alfabeto.map((letter) => (
         <Letra
           simbolo={letter}
@@ -50,8 +53,27 @@ const Letras = ({ chutes, setChutes, isGameRunning }) => {
           setChutes={setChutes}
         />
       ))}
-    </div>
+    </Container>
   );
 };
+
+const Palpite = styled.button`
+  width: 40px;
+  height: 40px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+`;
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: center;
+`;
 
 export default Letras;
