@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 const Jogo = ({
   palavra,
   chutes,
@@ -23,9 +25,9 @@ const Jogo = ({
         data-test="game-image"
         src={`img/assets/forca${chutesErrados.length}.png`}
       ></img>
-      <button data-test="choose-word" onClick={onClickPalavra}>
+      <Escolha data-test="choose-word" onClick={onClickPalavra}>
         Escolher palavra
-      </button>
+      </Escolha>
       <div data-test="word" data-answer={palavra}>
         {" "}
         {palavraParaExibir}{" "}
@@ -35,3 +37,17 @@ const Jogo = ({
 };
 
 export default Jogo;
+
+const Escolha = styled.button`
+  width: 200px;
+  height: 60px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: #27ae60;
+`;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const alfabeto = [
   "a",
@@ -32,7 +33,6 @@ const alfabeto = [
 const Letra = ({ setChutes, simbolo, chutes, disabled }) => {
   return (
     <Palpite
-      className="letras"
       data-test="letter"
       disabled={disabled}
       onClick={() => setChutes([...chutes, simbolo])}
@@ -68,6 +68,7 @@ const Palpite = styled.button`
   display: flex;
   align-items: center;
   text-align: center;
+  margin: 5px;
 `;
 
 const Container = styled.div`
